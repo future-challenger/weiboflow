@@ -9,14 +9,39 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        WeiboSDK.enableDebugMode(true)
+        WeiboSDK.registerApp("1436716591")
+        
         return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return WeiboSDK.handleOpenURL(url, delegate: self)
+    }
+    
+    //MARK: Weibo delegate
+    
+    func didReceiveWeiboRequest(request: WBBaseRequest!) {
+        
+    }
+    
+    func didReceiveWeiboResponse(response: WBBaseResponse!) {
+        let weiboResponse = response as? WBAuthorizeResponse
+        if let r = weiboResponse {
+            print("weibo response \(r.userID)")
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+
+            if let userModel = WeiboUserModel(weiboUser: r) {
+                userDefaults.saveCustomObject(customObject: userModel, key: CommonUtil.WEIBO_USER)
+            }
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
