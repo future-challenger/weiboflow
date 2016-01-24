@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		876DE125B2CDD1E9D5D5E7DF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA90AB1EE2A7C6014A76F29 /* libPods.a */; };
 		B46001C71C54DC3B005321FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46001C61C54DC3B005321FA /* AppDelegate.swift */; };
-		B46001C91C54DC3B005321FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46001C81C54DC3B005321FA /* ViewController.swift */; };
 		B46001CC1C54DC3B005321FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B46001CA1C54DC3B005321FA /* Main.storyboard */; };
 		B46001CE1C54DC3B005321FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B46001CD1C54DC3B005321FA /* Assets.xcassets */; };
 		B46001D11C54DC3B005321FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B46001CF1C54DC3B005321FA /* LaunchScreen.storyboard */; };
 		B46001DC1C54DC3B005321FA /* CollectionViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46001DB1C54DC3B005321FA /* CollectionViewDemoTests.swift */; };
 		B46001E71C54DC3B005321FA /* CollectionViewDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46001E61C54DC3B005321FA /* CollectionViewDemoUITests.swift */; };
+		B46001F51C54DD20005321FA /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46001F41C54DD20005321FA /* HomeCollectionViewController.swift */; };
+		B46001F81C5502C4005321FA /* WeiboLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46001F71C5502C4005321FA /* WeiboLoginViewController.swift */; };
+		B46001FA1C5504A4005321FA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46001F91C5504A4005321FA /* HomeViewController.swift */; };
+		B46001FF1C5508CE005321FA /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46001FE1C5508CE005321FA /* CommonUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4DA90AB1EE2A7C6014A76F29 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8855F9723FEF95CEBBAC6F4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B46001C31C54DC3B005321FA /* CollectionViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46001C61C54DC3B005321FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B46001C81C54DC3B005321FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B46001CB1C54DC3B005321FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B46001CD1C54DC3B005321FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B46001D01C54DC3B005321FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +52,12 @@
 		B46001E21C54DC3B005321FA /* CollectionViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollectionViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46001E61C54DC3B005321FA /* CollectionViewDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDemoUITests.swift; sourceTree = "<group>"; };
 		B46001E81C54DC3B005321FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B46001F41C54DD20005321FA /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		B46001F61C54FDEB005321FA /* CollectionViewDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CollectionViewDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		B46001F71C5502C4005321FA /* WeiboLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboLoginViewController.swift; sourceTree = "<group>"; };
+		B46001F91C5504A4005321FA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B46001FE1C5508CE005321FA /* CommonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
+		BE115B15F2306CD93A62301A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				876DE125B2CDD1E9D5D5E7DF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +93,8 @@
 				B46001DA1C54DC3B005321FA /* CollectionViewDemoTests */,
 				B46001E51C54DC3B005321FA /* CollectionViewDemoUITests */,
 				B46001C41C54DC3B005321FA /* Products */,
+				C311BBA9E8A3F2BB43079990 /* Pods */,
+				F0DEED7E462BC7C579A73F53 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +111,10 @@
 		B46001C51C54DC3B005321FA /* CollectionViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B46001FD1C5508B0005321FA /* Utils */,
+				B46001FC1C5505A9005321FA /* Controllers */,
+				B46001FB1C550589005321FA /* Supporting Files */,
 				B46001C61C54DC3B005321FA /* AppDelegate.swift */,
-				B46001C81C54DC3B005321FA /* ViewController.swift */,
-				B46001CA1C54DC3B005321FA /* Main.storyboard */,
-				B46001CD1C54DC3B005321FA /* Assets.xcassets */,
-				B46001CF1C54DC3B005321FA /* LaunchScreen.storyboard */,
-				B46001D21C54DC3B005321FA /* Info.plist */,
 			);
 			path = CollectionViewDemo;
 			sourceTree = "<group>";
@@ -125,6 +137,53 @@
 			path = CollectionViewDemoUITests;
 			sourceTree = "<group>";
 		};
+		B46001FB1C550589005321FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B46001CD1C54DC3B005321FA /* Assets.xcassets */,
+				B46001CA1C54DC3B005321FA /* Main.storyboard */,
+				B46001D21C54DC3B005321FA /* Info.plist */,
+				B46001CF1C54DC3B005321FA /* LaunchScreen.storyboard */,
+				B46001F61C54FDEB005321FA /* CollectionViewDemo-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B46001FC1C5505A9005321FA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B46001F41C54DD20005321FA /* HomeCollectionViewController.swift */,
+				B46001F71C5502C4005321FA /* WeiboLoginViewController.swift */,
+				B46001F91C5504A4005321FA /* HomeViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B46001FD1C5508B0005321FA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B46001FE1C5508CE005321FA /* CommonUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C311BBA9E8A3F2BB43079990 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE115B15F2306CD93A62301A /* Pods.debug.xcconfig */,
+				A8855F9723FEF95CEBBAC6F4 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F0DEED7E462BC7C579A73F53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DA90AB1EE2A7C6014A76F29 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B46001EB1C54DC3B005321FA /* Build configuration list for PBXNativeTarget "CollectionViewDemo" */;
 			buildPhases = (
+				9D4791CADC49F52EB197097F /* Check Pods Manifest.lock */,
 				B46001BF1C54DC3B005321FA /* Sources */,
 				B46001C01C54DC3B005321FA /* Frameworks */,
 				B46001C11C54DC3B005321FA /* Resources */,
+				EB1DC93393DA47020D5707A5 /* Embed Pods Frameworks */,
+				76E1EE93ADD6AB2CA0F4C1CF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,13 +313,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		76E1EE93ADD6AB2CA0F4C1CF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D4791CADC49F52EB197097F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EB1DC93393DA47020D5707A5 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B46001BF1C54DC3B005321FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B46001C91C54DC3B005321FA /* ViewController.swift in Sources */,
+				B46001F81C5502C4005321FA /* WeiboLoginViewController.swift in Sources */,
 				B46001C71C54DC3B005321FA /* AppDelegate.swift in Sources */,
+				B46001F51C54DD20005321FA /* HomeCollectionViewController.swift in Sources */,
+				B46001FF1C5508CE005321FA /* CommonUtil.swift in Sources */,
+				B46001FA1C5504A4005321FA /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,23 +508,29 @@
 		};
 		B46001EC1C54DC3B005321FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE115B15F2306CD93A62301A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CollectionViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.thunderstudio.apps.CollectionViewDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thunderstudio.whonearby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CollectionViewDemo/CollectionViewDemo-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		B46001ED1C54DC3B005321FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8855F9723FEF95CEBBAC6F4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CollectionViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.thunderstudio.apps.CollectionViewDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thunderstudio.whonearby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CollectionViewDemo/CollectionViewDemo-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -482,6 +601,7 @@
 				B46001ED1C54DC3B005321FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B46001EE1C54DC3B005321FA /* Build configuration list for PBXNativeTarget "CollectionViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +610,7 @@
 				B46001F01C54DC3B005321FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B46001F11C54DC3B005321FA /* Build configuration list for PBXNativeTarget "CollectionViewDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +619,7 @@
 				B46001F31C54DC3B005321FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
