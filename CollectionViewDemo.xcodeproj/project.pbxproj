@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		876DE125B2CDD1E9D5D5E7DF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA90AB1EE2A7C6014A76F29 /* libPods.a */; };
+		6B351E1ACB538E79FF9A0959 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E3BEDC6CFEB42F2B3EFE0B /* Pods.framework */; };
 		B46001C71C54DC3B005321FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46001C61C54DC3B005321FA /* AppDelegate.swift */; };
 		B46001CC1C54DC3B005321FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B46001CA1C54DC3B005321FA /* Main.storyboard */; };
 		B46001CE1C54DC3B005321FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B46001CD1C54DC3B005321FA /* Assets.xcassets */; };
@@ -18,6 +18,9 @@
 		B46001F81C5502C4005321FA /* WeiboLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46001F71C5502C4005321FA /* WeiboLoginViewController.swift */; };
 		B46001FA1C5504A4005321FA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46001F91C5504A4005321FA /* HomeViewController.swift */; };
 		B46001FF1C5508CE005321FA /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46001FE1C5508CE005321FA /* CommonUtil.swift */; };
+		B46002021C55D78F005321FA /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46002011C55D78F005321FA /* StatusModel.swift */; };
+		B46002041C55DF18005321FA /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46002031C55DF18005321FA /* BaseModel.swift */; };
+		B46002061C55E8E1005321FA /* WBUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46002051C55E8E1005321FA /* WBUserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4DA90AB1EE2A7C6014A76F29 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		32E3BEDC6CFEB42F2B3EFE0B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8855F9723FEF95CEBBAC6F4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B46001C31C54DC3B005321FA /* CollectionViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46001C61C54DC3B005321FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +60,9 @@
 		B46001F71C5502C4005321FA /* WeiboLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboLoginViewController.swift; sourceTree = "<group>"; };
 		B46001F91C5504A4005321FA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B46001FE1C5508CE005321FA /* CommonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
+		B46002011C55D78F005321FA /* StatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
+		B46002031C55DF18005321FA /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		B46002051C55E8E1005321FA /* WBUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserModel.swift; sourceTree = "<group>"; };
 		BE115B15F2306CD93A62301A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				876DE125B2CDD1E9D5D5E7DF /* libPods.a in Frameworks */,
+				6B351E1ACB538E79FF9A0959 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +117,7 @@
 		B46001C51C54DC3B005321FA /* CollectionViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B46002001C55D742005321FA /* Models */,
 				B46001FD1C5508B0005321FA /* Utils */,
 				B46001FC1C5505A9005321FA /* Controllers */,
 				B46001FB1C550589005321FA /* Supporting Files */,
@@ -167,6 +174,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B46002001C55D742005321FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B46002011C55D78F005321FA /* StatusModel.swift */,
+				B46002031C55DF18005321FA /* BaseModel.swift */,
+				B46002051C55E8E1005321FA /* WBUserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C311BBA9E8A3F2BB43079990 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,7 +196,7 @@
 		F0DEED7E462BC7C579A73F53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4DA90AB1EE2A7C6014A76F29 /* libPods.a */,
+				32E3BEDC6CFEB42F2B3EFE0B /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -368,7 +385,10 @@
 			files = (
 				B46001F81C5502C4005321FA /* WeiboLoginViewController.swift in Sources */,
 				B46001C71C54DC3B005321FA /* AppDelegate.swift in Sources */,
+				B46002041C55DF18005321FA /* BaseModel.swift in Sources */,
 				B46001F51C54DD20005321FA /* HomeCollectionViewController.swift in Sources */,
+				B46002021C55D78F005321FA /* StatusModel.swift in Sources */,
+				B46002061C55E8E1005321FA /* WBUserModel.swift in Sources */,
 				B46001FF1C5508CE005321FA /* CommonUtil.swift in Sources */,
 				B46001FA1C5504A4005321FA /* HomeViewController.swift in Sources */,
 			);
