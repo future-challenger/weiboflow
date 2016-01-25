@@ -12,11 +12,18 @@ import ObjectMapper
 
 //private let reuseIdentifier = "Cell"
 
-class HomeCollectionViewController: UICollectionViewController {
+class HomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     private let reuseIdentifier = "DemoCell"
-    private let sectionInsets = UIEdgeInsets(top: 50, left: 20, bottom: 50, right: 20)
+    private let reuseTextIdentifier = "DemoTextCell"
+//    private let sectionInsets = UIEdgeInsets(top: 50, left: 20, bottom: 50, right: 20)
+    private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     private var timeLineStatus: [StatusModel]?
+    
+    private var cellWidth: CGFloat {
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        return (screenWidth - 40) / 2
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,33 +63,33 @@ class HomeCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
+        return 1    //1
     }
 
-
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.timeLineStatus?.count ?? 0
+        return self.timeLineStatus?.count ?? 0 //2
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
     
-
+        cell.backgroundColor = UIColor.orangeColor() //3
     
         return cell
+    }
+    
+    // MARK: UICollectionViewDelegateFlowLayout
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        return CGSize(width: self.cellWidth, height: 300)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return sectionInsets
     }
 
     // MARK: UICollectionViewDelegate

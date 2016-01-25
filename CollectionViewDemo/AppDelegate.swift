@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
         WeiboSDK.enableDebugMode(true)
         WeiboSDK.registerApp(ConstantUtil.WEIBO_APPKEY)
         
+        print("screen width: \(UIScreen.mainScreen().bounds.size.width)")
+        
         return true
     }
     

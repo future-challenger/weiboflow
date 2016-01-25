@@ -18,6 +18,8 @@ class CommonUtil: NSObject {
 struct ConstantUtil {
     static let WEIBO_APPKEY = "1436716591"
     static let WEIBO_LOGIN_NOTIFICATION = "WEIBO_LOGIN_NOTIFICATION"
+    
+    
 }
 
 extension NSUserDefaults {
