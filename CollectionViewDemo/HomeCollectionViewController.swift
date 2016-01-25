@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import ObjectMapper
 
 //private let reuseIdentifier = "Cell"
 
@@ -14,6 +16,7 @@ class HomeCollectionViewController: UICollectionViewController {
 
     private let reuseIdentifier = "DemoCell"
     private let sectionInsets = UIEdgeInsets(top: 50, left: 20, bottom: 50, right: 20)
+    private var timeLineStatus: [StatusModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,27 @@ class HomeCollectionViewController: UICollectionViewController {
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let weiboLoginInfo = NSUserDefaults.standardUserDefaults().getCustomObject(forKey: CommonUtil.WEIBO_USER) as? WeiboUserModel
+        let parameters: [String: String]?
+        if let weiboUserInfo = weiboLoginInfo {
+            parameters = ["access_token": weiboUserInfo.accessToken ?? "",
+                          "source": ConstantUtil.WEIBO_APPKEY]
+            Alamofire.request(.GET, "https://api.weibo.com/2/statuses/public_timeline.json", parameters: parameters, encoding: .URL, headers: nil)
+                .responseString(completionHandler: {response in
+//                    print("response:- \(response)")
+                    let statuses = Mapper<BaseModel>().map(response.result.value)
+                    print("total number: \(statuses!.totalNumber)")
+                    if let timeLine = statuses where timeLine.totalNumber > 0 {
+                        self.timeLineStatus = timeLine.statuses
+                        self.collectionView?.reloadData()
+                    }
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,20 +69,18 @@ class HomeCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return self.timeLineStatus?.count ?? 0
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
     
-        // Configure the cell
+
     
         return cell
     }

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         WeiboSDK.enableDebugMode(true)
-        WeiboSDK.registerApp("1436716591")
+        WeiboSDK.registerApp(ConstantUtil.WEIBO_APPKEY)
         
         return true
     }
@@ -40,6 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
 
             if let userModel = WeiboUserModel(weiboUser: r) {
                 userDefaults.saveCustomObject(customObject: userModel, key: CommonUtil.WEIBO_USER)
+                NSNotificationCenter.defaultCenter().postNotificationName(ConstantUtil.WEIBO_LOGIN_NOTIFICATION, object: nil)
+            } else {
+                //TODO: weibo login failed.
             }
         }
     }

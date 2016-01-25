@@ -103,7 +103,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="VFJ-3J-C05"/>
                     <connections>
-                        <outlet property="collectionView" destination="jeu-ck-OQv" id="f4D-zg-Tte"/>
+                        <outlet property="collectionView" destination="jeu-ck-OQv" id="Y09-Qu-KJx"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cP-6Z-WXh" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,37 +10,39 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    var weiboLoginInfo: WeiboUserModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let userLoginStatus = userDefaults.objectForKey(CommonUtil.WEIBO_USER) as? WeiboUserModel
+        weiboLoginInfo = userDefaults.getCustomObject(forKey: CommonUtil.WEIBO_USER) as? WeiboUserModel
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let weiboLoginController = storyBoard.instantiateViewControllerWithIdentifier("weiboLoginController")
-        if userLoginStatus == nil {
-            self .presentViewController(weiboLoginController, animated: true, completion: nil)
+        if weiboLoginInfo == nil {
+            self.presentViewController(weiboLoginController, animated: true, completion: nil)
+        } else {
+            let collectionController = self.storyboard?.instantiateViewControllerWithIdentifier("homeCollectionViewController")
+            self.navigationController?.pushViewController(collectionController!, animated: true)
         }
         
-//        let userDefaults = NSUserDefaults.standardUserDefaults()
-//        let userModel = UserModel(uId: "123456", un: "Jack")
-//        userDefaults.setObject(userModel, forKey: "UserInfoKey")
-//        userDefaults.synchronize()
-        
+        // register notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationAction:", name: ConstantUtil.WEIBO_LOGIN_NOTIFICATION, object: nil)
     }
 
+    func notificationAction(noti: NSNotification) {
+        if noti.name != ConstantUtil.WEIBO_LOGIN_NOTIFICATION {
+            print("notification name is not - \(ConstantUtil.WEIBO_LOGIN_NOTIFICATION)")
+            return
+        }
+        
+        let collectionController = self.storyboard?.instantiateViewControllerWithIdentifier("homeCollectionViewController")
+        self.navigationController?.pushViewController(collectionController!, animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    class UserModel {
-        var userId: String?
-        var userName: String?
-        
-        init(uId: String, un: String) {
-            userId = uId
-            userName = un
-        }
     }
 }

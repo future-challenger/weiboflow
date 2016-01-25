@@ -15,6 +15,11 @@ class CommonUtil: NSObject {
     static let WEIBO_USER = "WEIBO_USER"
 }
 
+struct ConstantUtil {
+    static let WEIBO_APPKEY = "1436716591"
+    static let WEIBO_LOGIN_NOTIFICATION = "WEIBO_LOGIN_NOTIFICATION"
+}
+
 extension NSUserDefaults {
     func saveCustomObject(customObject object: NSCoding, key: String) {
         let encodedObject = NSKeyedArchiver.archivedDataWithRootObject(object)
