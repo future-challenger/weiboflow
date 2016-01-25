@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let userLoginStatus = userDefaults.objectForKey("UseLoginStatus") as? String
+        let userLoginStatus = userDefaults.objectForKey(CommonUtil.WEIBO_USER) as? WeiboUserModel
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let weiboLoginController = storyBoard.instantiateViewControllerWithIdentifier("weiboLoginController")

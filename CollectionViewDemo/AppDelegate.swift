@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
     
     func didReceiveWeiboResponse(response: WBBaseResponse!) {
         let weiboResponse = response as? WBAuthorizeResponse
-        if let r = weiboResponse {
+        if let r = weiboResponse where r.userID != nil {
             print("weibo response \(r.userID)")
             let userDefaults = NSUserDefaults.standardUserDefaults()
 
