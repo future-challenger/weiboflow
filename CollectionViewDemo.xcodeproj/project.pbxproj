@@ -21,6 +21,8 @@
 		B46002021C55D78F005321FA /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46002011C55D78F005321FA /* StatusModel.swift */; };
 		B46002041C55DF18005321FA /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46002031C55DF18005321FA /* BaseModel.swift */; };
 		B46002061C55E8E1005321FA /* WBUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46002051C55E8E1005321FA /* WBUserModel.swift */; };
+		B49312FC1C562E570088C6A4 /* WeiboImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49312FB1C562E570088C6A4 /* WeiboImageCell.swift */; };
+		B49312FE1C5734620088C6A4 /* WeiboTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49312FD1C5734620088C6A4 /* WeiboTextCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		B46002011C55D78F005321FA /* StatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
 		B46002031C55DF18005321FA /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		B46002051C55E8E1005321FA /* WBUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBUserModel.swift; sourceTree = "<group>"; };
+		B49312FB1C562E570088C6A4 /* WeiboImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboImageCell.swift; sourceTree = "<group>"; };
+		B49312FD1C5734620088C6A4 /* WeiboTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboTextCell.swift; sourceTree = "<group>"; };
 		BE115B15F2306CD93A62301A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +126,8 @@
 				B46001FC1C5505A9005321FA /* Controllers */,
 				B46001FB1C550589005321FA /* Supporting Files */,
 				B46001C61C54DC3B005321FA /* AppDelegate.swift */,
+				B49312FB1C562E570088C6A4 /* WeiboImageCell.swift */,
+				B49312FD1C5734620088C6A4 /* WeiboTextCell.swift */,
 			);
 			path = CollectionViewDemo;
 			sourceTree = "<group>";
@@ -390,7 +396,9 @@
 				B46002021C55D78F005321FA /* StatusModel.swift in Sources */,
 				B46002061C55E8E1005321FA /* WBUserModel.swift in Sources */,
 				B46001FF1C5508CE005321FA /* CommonUtil.swift in Sources */,
+				B49312FE1C5734620088C6A4 /* WeiboTextCell.swift in Sources */,
 				B46001FA1C5504A4005321FA /* HomeViewController.swift in Sources */,
+				B49312FC1C562E570088C6A4 /* WeiboImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
