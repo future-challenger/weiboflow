@@ -32,7 +32,8 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.registerClass(WeiboImageCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.registerClass(WeiboTextCell.self, forCellWithReuseIdentifier: reuseTextIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -74,7 +75,22 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        let status = self.getWeiboStatus(indexPath)
+        let cell: UICollectionViewCell
+        
+        if status.hasImage == 1 {
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+            let weiboImageCell = cell as! WeiboImageCell
+//            weiboImageCell.weiboImageView.image =
+            weiboImageCell.weiboImageView.backgroundColor = UIColor.blueColor()
+            
+        } else if status.hasImage == 0 {
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseTextIdentifier, forIndexPath: indexPath)
+            let weiboTextCell = cell as! WeiboTextCell
+            weiboTextCell.weiboTextLabel.backgroundColor = UIColor.redColor()
+        } else {
+            cell = UICollectionViewCell()
+        }
     
         cell.backgroundColor = UIColor.orangeColor() //3
     
@@ -85,13 +101,34 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return CGSize(width: self.cellWidth, height: 300)
+        return CGSize(width: self.cellWidth, height: self.cellWidth)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return sectionInsets
     }
 
+    /**
+     get status and if this status has image or not
+     @return:
+        status, one of the timeline
+        Int, 1: there's image, 0: there's no image, -1: empty status
+     */
+    func getWeiboStatus(indexPath: NSIndexPath) -> (status: StatusModel?, hasImage: Int) {
+        if let timeLineStatusList = self.timeLineStatus where timeLineStatusList.count > 0 {
+            let status = timeLineStatusList[indexPath.item]
+            if let middlePic = status.bmiddlePic where middlePic != "" {
+                // there's middle sized image to show
+                return (status, 1)
+                
+            } else {
+                // start to consider text
+                return (status, 0)
+            }
+        }
+        return (nil, -1)
+    }
+    
     // MARK: UICollectionViewDelegate
 
     /*
