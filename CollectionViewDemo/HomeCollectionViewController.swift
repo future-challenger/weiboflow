@@ -44,9 +44,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         
 //        staticWeiboTextCell = self.collectionView?.dequeueReusableCellWithReuseIdentifier(reuseTextIdentifier, forIndexPath: NSIndexPath(forItem: 0, inSection: 0)) as? WeiboTextCell
         
-        self.staticLabel.preferredMaxLayoutWidth = self.cellWidth
-        self.staticLabel.numberOfLines = 0
-        self.staticLabel.lineBreakMode = .ByTruncatingTail
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -57,7 +55,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         if let weiboUserInfo = weiboLoginInfo {
             parameters = ["access_token": weiboUserInfo.accessToken ?? "",
                           "source": ConstantUtil.WEIBO_APPKEY]
-            Alamofire.request(.GET, "https://api.weibo.com/2/statuses/public_timeline.json", parameters: parameters, encoding: .URL, headers: nil)
+            Alamofire.request(.GET, "https://api.weibo.com/2/statuses/friends_timeline.json", parameters: parameters, encoding: .URL, headers: nil)
                 .responseString(completionHandler: {response in
                     print("response:- \(response)")
                     let statuses = Mapper<BaseModel>().map(response.result.value)
