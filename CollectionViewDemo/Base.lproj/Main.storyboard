@@ -135,7 +135,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="2qd-z3-TlQ" secondAttribute="trailing" constant="-8" id="7z6-xi-cTr"/>
                                     <constraint firstItem="2qd-z3-TlQ" firstAttribute="top" secondItem="WxU-O7-yqm" secondAttribute="topMargin" constant="-8" id="9Xp-YR-cK6"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="2qd-z3-TlQ" secondAttribute="bottom" constant="-4" id="O5S-Jc-7Cc"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="2qd-z3-TlQ" secondAttribute="bottom" priority="250" constant="-4" id="O5S-Jc-7Cc"/>
                                     <constraint firstItem="2qd-z3-TlQ" firstAttribute="leading" secondItem="WxU-O7-yqm" secondAttribute="leadingMargin" constant="-8" id="dVl-Tl-AQr"/>
                                 </constraints>
                                 <size key="customSize" width="179" height="21"/>

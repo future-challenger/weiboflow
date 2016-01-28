@@ -17,6 +17,6 @@ class WeiboTextCell: UICollectionViewCell {
     }
     
     func setCellWidth(width: CGFloat) {
-        weiboTextLabel.preferredMaxLayoutWidth = width
+//        weiboTextLabel.preferredMaxLayoutWidth = width
     }
 }
