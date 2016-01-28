@@ -10,4 +10,13 @@ import UIKit
 
 class WeiboTextCell: UICollectionViewCell {
     @IBOutlet weak var weiboTextLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // this method is still get called.
+    }
+    
+    func setCellWidth(width: CGFloat) {
+        weiboTextLabel.preferredMaxLayoutWidth = width
+    }
 }

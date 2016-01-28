@@ -28,10 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WeiboSDKDelegate {
         return WeiboSDK.handleOpenURL(url, delegate: self)
     }
     
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        return WeiboSDK.handleOpenURL(url, delegate: self)
+    }
+    
     //MARK: Weibo delegate
     
     func didReceiveWeiboRequest(request: WBBaseRequest!) {
-        
+        print("didReceiveWeiboRequest")
     }
     
     func didReceiveWeiboResponse(response: WBBaseResponse!) {

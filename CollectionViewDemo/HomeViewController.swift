@@ -14,21 +14,28 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        // register notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationAction:", name: ConstantUtil.WEIBO_LOGIN_NOTIFICATION, object: nil)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         let userDefaults = NSUserDefaults.standardUserDefaults()
         weiboLoginInfo = userDefaults.getCustomObject(forKey: CommonUtil.WEIBO_USER) as? WeiboUserModel
         
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let weiboLoginController = storyBoard.instantiateViewControllerWithIdentifier("weiboLoginController")
+        //        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        //        let weiboLoginController = storyBoard.instantiateViewControllerWithIdentifier("weiboLoginController")
         if weiboLoginInfo == nil {
-            self.presentViewController(weiboLoginController, animated: true, completion: nil)
+            //            self.presentViewController(weiboLoginController, animated: true, completion: nil)
+            self .performSegueWithIdentifier("weiboLogin", sender: self)
         } else {
             let collectionController = self.storyboard?.instantiateViewControllerWithIdentifier("homeCollectionViewController")
             self.navigationController?.pushViewController(collectionController!, animated: true)
         }
-        
-        // register notification
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notificationAction:", name: ConstantUtil.WEIBO_LOGIN_NOTIFICATION, object: nil)
     }
 
     func notificationAction(noti: NSNotification) {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="U1s-lB-E5Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10102" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="U1s-lB-E5Y">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10080"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -51,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puL-NP-uFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1694" y="305"/>
+            <point key="canvasLocation" x="-1560" y="458"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="BFi-ex-6o6">
@@ -67,6 +67,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="J3N-tN-OOB"/>
+                    <connections>
+                        <segue destination="q8n-Of-kOf" kind="presentation" identifier="weiboLogin" id="gxk-FP-0Xr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUL-tr-KFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,19 +110,22 @@
                                     <constraint firstItem="zlb-vb-nXD" firstAttribute="top" secondItem="VVx-rO-LkL" secondAttribute="topMargin" constant="-8" id="Z0E-Wl-Hi7"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="weiboImageView" destination="zlb-vb-nXD" id="sNc-mV-Qci"/>
+                                    <outlet property="weiboImageView" destination="zlb-vb-nXD" id="Tin-Lt-xC1"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DemoTextCell" id="WxU-O7-yqm" customClass="WeiboTextCell" customModule="CollectionViewDemo" customModuleProvider="target">
-                                <rect key="frame" x="210.5" y="0.0" width="179" height="189"/>
+                                <rect key="frame" x="189" y="84" width="179" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="179" height="189"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="179" height="21"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qd-z3-TlQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="179" height="189"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="179" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="8Sv-kA-7SC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -129,11 +135,12 @@
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="2qd-z3-TlQ" secondAttribute="trailing" constant="-8" id="7z6-xi-cTr"/>
                                     <constraint firstItem="2qd-z3-TlQ" firstAttribute="top" secondItem="WxU-O7-yqm" secondAttribute="topMargin" constant="-8" id="9Xp-YR-cK6"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="2qd-z3-TlQ" secondAttribute="bottom" constant="-8" id="U5X-UT-05h"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="2qd-z3-TlQ" secondAttribute="bottom" constant="-4" id="O5S-Jc-7Cc"/>
                                     <constraint firstItem="2qd-z3-TlQ" firstAttribute="leading" secondItem="WxU-O7-yqm" secondAttribute="leadingMargin" constant="-8" id="dVl-Tl-AQr"/>
                                 </constraints>
+                                <size key="customSize" width="179" height="21"/>
                                 <connections>
-                                    <outlet property="weiboTextLabel" destination="2qd-z3-TlQ" id="xA7-4V-gjg"/>
+                                    <outlet property="weiboTextLabel" destination="2qd-z3-TlQ" id="1LY-AK-fyw"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

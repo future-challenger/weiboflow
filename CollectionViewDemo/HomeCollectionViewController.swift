@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import ObjectMapper
+import SDWebImage
+import CHTCollectionViewWaterfallLayout
 
 //private let reuseIdentifier = "Cell"
 
@@ -16,7 +18,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
 
     private let reuseIdentifier = "DemoCell"
     private let reuseTextIdentifier = "DemoTextCell"
-//    private let sectionInsets = UIEdgeInsets(top: 50, left: 20, bottom: 50, right: 20)
+
     private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     private var timeLineStatus: [StatusModel]?
     
@@ -25,6 +27,9 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         return (screenWidth - 40) / 2
     }
     
+    private let staticLabel: UILabel = UILabel()
+    private var staticImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,10 +37,16 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(WeiboImageCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.collectionView!.registerClass(WeiboTextCell.self, forCellWithReuseIdentifier: reuseTextIdentifier)
+//        self.collectionView!.registerClass(WeiboImageCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.registerClass(WeiboTextCell.self, forCellWithReuseIdentifier: reuseTextIdentifier)
 
         // Do any additional setup after loading the view.
+        
+//        staticWeiboTextCell = self.collectionView?.dequeueReusableCellWithReuseIdentifier(reuseTextIdentifier, forIndexPath: NSIndexPath(forItem: 0, inSection: 0)) as? WeiboTextCell
+        
+        self.staticLabel.preferredMaxLayoutWidth = self.cellWidth
+        self.staticLabel.numberOfLines = 0
+        self.staticLabel.lineBreakMode = .ByTruncatingTail
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -48,7 +59,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
                           "source": ConstantUtil.WEIBO_APPKEY]
             Alamofire.request(.GET, "https://api.weibo.com/2/statuses/public_timeline.json", parameters: parameters, encoding: .URL, headers: nil)
                 .responseString(completionHandler: {response in
-//                    print("response:- \(response)")
+                    print("response:- \(response)")
                     let statuses = Mapper<BaseModel>().map(response.result.value)
                     print("total number: \(statuses!.totalNumber)")
                     if let timeLine = statuses where timeLine.totalNumber > 0 {
@@ -61,7 +72,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
     // MARK: UICollectionViewDataSource
@@ -76,17 +87,26 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let status = self.getWeiboStatus(indexPath)
-        let cell: UICollectionViewCell
+        var cell: UICollectionViewCell = UICollectionViewCell()
+        
+        guard let _ = status.status else {
+            cell.backgroundColor = UIColor.darkTextColor()
+            return cell
+        }
         
         if status.hasImage == 1 {
             cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
             let weiboImageCell = cell as! WeiboImageCell
 //            weiboImageCell.weiboImageView.image =
             weiboImageCell.weiboImageView.backgroundColor = UIColor.blueColor()
+            weiboImageCell.weiboImageView.sd_setImageWithURL(NSURL(string: status.status?.bmiddlePic ?? ""))
             
         } else if status.hasImage == 0 {
             cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseTextIdentifier, forIndexPath: indexPath)
             let weiboTextCell = cell as! WeiboTextCell
+            weiboTextCell.setCellWidth(self.cellWidth)
+            weiboTextCell.weiboTextLabel.text = status.status?.weiboText ?? ""
+            weiboTextCell.contentView.backgroundColor = UIColor.orangeColor()
             weiboTextCell.weiboTextLabel.backgroundColor = UIColor.redColor()
         } else {
             cell = UICollectionViewCell()
@@ -100,6 +120,17 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     // MARK: UICollectionViewDelegateFlowLayout
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        let status = self.getWeiboStatus(indexPath)
+//        guard let _ = status.status else {
+//            return CGSize(width: self.cellWidth, height: self.cellWidth)
+//        }
+//        
+//        if status.hasImage == 0 {
+//            staticLabel.text = status.status?.weiboText ?? ""
+//            let height = self.staticLabel.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+//            
+//            return CGSize(width: self.cellWidth, height: height)
+//        }
         
         return CGSize(width: self.cellWidth, height: self.cellWidth)
     }
@@ -126,11 +157,16 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
                 return (status, 0)
             }
         }
+        
         return (nil, -1)
     }
     
     // MARK: UICollectionViewDelegate
 
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
