@@ -23,6 +23,7 @@ class StatusModel: BaseModel {
     }
     
     override func mapping(map: Map) {
+        super.mapping(map)
         statusId <- map["id"]
         thumbnailPic <- map["thumbnail_pic"]
         bmiddlePic <- map["bmiddle_pic"]
