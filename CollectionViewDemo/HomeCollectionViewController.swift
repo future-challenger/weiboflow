@@ -95,7 +95,6 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         if status.hasImage == 1 {
             cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
             let weiboImageCell = cell as! WeiboImageCell
-//            weiboImageCell.weiboImageView.image =
             weiboImageCell.weiboImageView.backgroundColor = UIColor.blueColor()
             weiboImageCell.weiboImageView.sd_setImageWithURL(NSURL(string: status.status?.bmiddlePic ?? ""))
             
