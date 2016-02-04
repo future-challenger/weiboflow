@@ -13,13 +13,24 @@ class CommonUtil: NSObject {
     
     static let WEIBO_REDIRECT_URL = "https://api.weibo.com/oauth2/default.html"
     static let WEIBO_USER = "WEIBO_USER"
+    
+    private override init(){
+    
+    }
 }
 
 struct ConstantUtil {
-    static let WEIBO_APPKEY = "你的微博APP KEY"
+    static let WEIBO_APPKEY = "1436716591"
     static let WEIBO_LOGIN_NOTIFICATION = "WEIBO_LOGIN_NOTIFICATION"
     
+    // MARK: Weibo url list
+    static let WB_COMMENT_URL = "https://api.weibo.com/2/comments/create.json"
+    static let WB_GOOD_URL = "https://api.weibo.com/2/interest/like.json"
+    static let WB_REPOST_URL = "https://api.weibo.com/2/statuses/repost.json"
     
+    // Weibo comment
+    static let ANIMATION_DURATION = 0.3
+    static let COMMENT_CONTENT_HEIGHT: CGFloat = 180.0
 }
 
 extension NSUserDefaults {
